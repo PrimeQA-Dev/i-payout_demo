@@ -9,7 +9,7 @@ from datetime import datetime
 
 
 AWS_IP = "https://app.11automation.com/"
-Project_API_Key = "Xm6Bv102DQNuEWrAiOYm"
+Project_API_Key = "iR61ZxaFNNc9ELSScuHe"
 global Login_Token
 screenshot =[]
 
@@ -18,7 +18,7 @@ def Eleven_Automation_Login():
     url = AWS_IP + "api/v1/auth/login"
 
     payload = json.dumps(
-        {"email": "superAdmin@yopmail.com", "password": "SuperAdmin@123"}
+        {"email": "sachin@primeqasolutions.com", "password": "Patel@123"}
     )
     headers = {"Content-Type": "application/json", "Authorization": "Basic Og=="}
 
