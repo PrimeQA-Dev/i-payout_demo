@@ -96,7 +96,7 @@ def Eleven_Automation_TestCase(RT_Login_Token, RT_Iteration_Id, Dashboard_list):
                 "result": Dashboard_list[i][2],
                 "executionTime": Dashboard_list[i][3],
                 "failureTrace": Dashboard_list[i][4],
-                # "screenshot": Dashboard_list[i][5],
+                "screenshot": Dashboard_list[i][5],
             }
             i += 1
             testcase_list.append(element)
@@ -130,7 +130,7 @@ def image_to_base64(dashboardList):
 
 def dashboard_main(Dashboard_list):
     if any("Fail" in x  for x in Dashboard_list):
-        # Dashboard_list = image_to_base64(Dashboard_list)
+        Dashboard_list = image_to_base64(Dashboard_list)
         print("In screenshot")
     RT_Login_Token = Eleven_Automation_Login()
     RT_Iteration_Id = Eleven_Automation_Iteration(
