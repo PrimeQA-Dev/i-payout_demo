@@ -15,7 +15,7 @@ screenshot =[]
 
 def Eleven_Automation_Login():
     print("Entered into Eleven_Automation_Login method....")
-    url = AWS_IP + "api/v1/auth/login"
+    url = AWS_IP + "api/v1/public/auth/login"
 
     payload = json.dumps(
         {"email": "sachin@primeqasolutions.com", "password": "Patel@123"}
