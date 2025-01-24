@@ -65,8 +65,8 @@ def Eleven_Automation_Iteration(RT_Login_Token):
 
     if str(response.status_code) == "201" or str(response.status_code) == "200":
         resp_data = response.json()
-        print(resp_data["_id"])
-        Iteration_Id = resp_data["_id"]
+        print(resp_data["iteration"]["_id"])
+        Iteration_Id = resp_data["iteration"]["_id"]
     else:
         Iteration_Id = None
 
@@ -112,7 +112,7 @@ def Eleven_Automation_TestCase(RT_Login_Token, RT_Iteration_Id, Dashboard_list):
 
 
 def image_to_base64(dashboardList):
-    image_path = os.getcwd() + "\\screenshot"
+    image_path = os.path.join(os.getcwd() + "/screenshot")
     for imgage in os.listdir(image_path):
         with open(image_path+"\\"+imgage, "rb") as img_file:
             # Read the image file
@@ -121,14 +121,16 @@ def image_to_base64(dashboardList):
             base64_string = base64.b64encode(img_data).decode('utf-8')
             for sublist in dashboardList:
             # Check if the third element of the sublist matches st
-                if sublist[1] in imgage:
+                if (sublist[1].split("["))[0] in imgage:
                     # Append st to the sublist
                     sublist.append(base64_string)
+                    print("Image appended")
                     break
     return dashboardList
 
 
 def dashboard_main(Dashboard_list):
+    
     if any("Fail" in x  for x in Dashboard_list):
         Dashboard_list = image_to_base64(Dashboard_list)
         print("In screenshot")
