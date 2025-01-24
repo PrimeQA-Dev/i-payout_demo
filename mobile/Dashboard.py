@@ -112,7 +112,7 @@ def Eleven_Automation_TestCase(RT_Login_Token, RT_Iteration_Id, Dashboard_list):
 
 
 def image_to_base64(dashboardList):
-    image_path = os.getcwd() + "\\screenshots"
+    image_path = os.getcwd() + "\\screenshot"
     for imgage in os.listdir(image_path):
         with open(image_path+"\\"+imgage, "rb") as img_file:
             # Read the image file
