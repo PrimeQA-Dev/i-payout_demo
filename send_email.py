@@ -65,7 +65,7 @@ def send_mail(send_from, send_to, cc_list, subject, body_message, server, port, 
         skip=new_list["skip"],
         pass_percentage=round(new_list["pass"]/new_list["total"]*100, 2),
         fail_percentage=round(new_list["fail"]/new_list["total"]*100, 2),
-        tags="testhere",
+        tags="registration",
         env="test",
         date=date_time_str
     )

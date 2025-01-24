@@ -34,8 +34,10 @@ def pytest_runtest_makereport(item, call):
             screenshot_name = f"{item.name}.png".replace('[', "_").replace(']', "_")
             sanitized_name = "".join(c for c in screenshot_name if c.isalnum() or c in (" ", "-", "_", "."))
             screenshot_path = os.path.join("screenshots", sanitized_name)
+            logging.info(screenshot_path)
             os.makedirs("screenshots", exist_ok=True)
             driver.save_screenshot(screenshot_path)
+            logging.info("Screenshot captured.")
 
 def fetch():
     path = os.getcwd() + "/report/test.xml"
