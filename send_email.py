@@ -90,14 +90,14 @@ def send_mail(send_from, send_to, cc_list, subject, body_message, server, port, 
         
 
     msg["From"] = send_from
+    msg["Pwd"] = "wscbinclchnuewxn"
     msg["To"] = ", ".join(send_to)
     msg["Cc"] = ", ".join(cc_list)
     try:
         server = SMTP("smtp.gmail.com", 587)
-        # outlook = client.Dispatch("Outlook.Application")
         server.starttls()
-        server.login(msg["From"], "wscbinclchnuewxn")
-        server.sendmail(msg["From"], "yogesh@primeqasolutions.com", msg.as_string())
+        server.login(msg["From"], msg["Pwd"])
+        server.sendmail(msg["From"], "sachin@primeqasolutions.com", msg.as_string())
         server.quit()
         print("Mail Sent successfully")
     except Exception as e_mail:
@@ -108,7 +108,7 @@ def send_mail(send_from, send_to, cc_list, subject, body_message, server, port, 
 now = datetime.now()
 date_time_str = now.strftime("%Y-%m-%d %H:%M:%S")
 
-send_to = ["yogesh@primeqasolutions.com"]
-cc_list = ["yogesh@primeqasolutions.com"]
+send_to = ["sachin@primeqasolutions.com"]
+cc_list = ["sachin@primeqasolutions.com"]
 
 send_mail("automationreport477@gmail.com", send_to, cc_list, "Automation execution report: ","\n", "smtp.gmail.com", port=587)
