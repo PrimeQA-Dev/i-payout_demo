@@ -97,7 +97,7 @@ def send_mail(send_from, send_to, cc_list, subject, body_message, server, port, 
         server = SMTP("smtp.gmail.com", 587)
         server.starttls()
         server.login(msg["From"], msg["Pwd"])
-        server.sendmail(msg["From"], "piyush@primeqasolutions.com", msg.as_string())
+        server.sendmail(msg["From"], "sachin@primeqasolutions.com", msg.as_string())
         server.quit()
         print("Mail Sent successfully")
     except Exception as e_mail:
@@ -108,7 +108,7 @@ def send_mail(send_from, send_to, cc_list, subject, body_message, server, port, 
 now = datetime.now()
 date_time_str = now.strftime("%Y-%m-%d %H:%M:%S")
 
-send_to = ["sachin@primeqasolutions.com"]
-cc_list = ["piyush@primeqasolutions.com"]
+send_to = ["piyush@primeqasolutions.com"]
+cc_list = ["sachin@primeqasolutions.com"]
 
 send_mail("automationreport477@gmail.com", send_to, cc_list, "Automation execution report: ","\n", "smtp.gmail.com", port=587)
